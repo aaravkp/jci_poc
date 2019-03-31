@@ -13,7 +13,7 @@ window.geometry("600x550")
 def cmdLoad():
     strfilename= filedialog.askopenfilename()
     txtFilename.set(strfilename)
-    df = pd.read_excel(strfilename, sheetname='Sheet1')
+    df = pd.read_excel(strfilename, sheetname='Master')
     for item in df.columns:
         list1.insert(END, item)
 
@@ -33,9 +33,9 @@ def cmdRemove():
         pos = pos + 1
 
 def cmdSubmit():
-    df = pd.read_excel(txtFilename.get(), sheetname='Sheet1')
+    df = pd.read_excel(txtFilename.get(), sheetname='Master')
     wb = openpyxl.load_workbook(txtFilename.get())
-    sheet1 = wb.get_sheet_by_name('Sheet1')
+    sheet1 = wb.get_sheet_by_name('Master')
 
     for item in range(list2.size()):
         lstvalue=list2.get(item)
